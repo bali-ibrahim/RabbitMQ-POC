@@ -10,7 +10,7 @@ namespace Messaging
         {
             get
             {
-                var configuration = Service.Value;
+                var configuration = Service<Configuration.RabbitMQ>.Value;
                 var cf = new ConnectionFactory
                 {
                     UserName = configuration.UserName,

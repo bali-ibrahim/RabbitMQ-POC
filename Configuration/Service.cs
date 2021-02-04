@@ -5,9 +5,9 @@ using System.Reflection;
 
 namespace Configuration
 {
-    public static class Service
+    public static class Service<T>
     {
-        public static readonly RabbitMQ Value;
+        public static readonly T Value;
 
         private static string AssemblyDirectory
         {
@@ -23,13 +23,13 @@ namespace Configuration
 
         static Service()
         {
-            var assemblyConfigFile = $"{AssemblyDirectory}{Path.DirectorySeparatorChar}{typeof(RabbitMQ).Name}.json";
+            var assemblyConfigFile = $"{AssemblyDirectory}{Path.DirectorySeparatorChar}{typeof(T).Name}.json";
             var configuration = new ConfigurationBuilder()
                 // current dll config
                 .AddJsonFile(assemblyConfigFile)
                 .Build()
                 ;
-            Value = configuration.Get<RabbitMQ>();
+            Value = configuration.Get<T>();
         }
     }
 }
