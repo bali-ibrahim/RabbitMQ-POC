@@ -9,8 +9,6 @@ namespace Configuration
     {
         public static readonly RabbitMQ Value;
 
-        private static readonly string AssemblyName = Assembly.GetExecutingAssembly().GetName().Name;
-
         private static string AssemblyDirectory
         {
             get
