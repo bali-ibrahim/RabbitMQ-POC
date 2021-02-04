@@ -16,7 +16,7 @@ namespace Broker.Controllers
         [HttpGet]
         public IEnumerable<RabbitMQ> Get()
         {
-            var configuration = Service.Value;
+            var configuration = Service<RabbitMQ>.Value;
             return new[] { configuration };
         }
     }
